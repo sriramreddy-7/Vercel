@@ -1,0 +1,54 @@
+{% extends 'lab_incharge_base.html' %}
+{% load static %}
+{% block body %}
+/*<style>*/
+/*    .square-image {*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.square-image img {*/
+/*    object-fit: cover;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*</style>*/
+<div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Table with contextual classes</h4>
+                    <p class="card-description"> Add class <code>.table-{color}</code>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Patient ID</th>
+                            <th>Patient Report</th>
+                            <th>Uploaded Date</th>
+                            <th>Image</th>
+                            <th>PDF</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in patient %}
+                          <tr class="table-info">
+                            <td>{{ x.patient_id }}</td>
+                            <td><a href="{{ x.report_file.url }}" class="btn btn-primary" type="button"> View </a></td>
+                            <td>{{ x.uploaded_at }}</td>
+                            <td style="text-align:center;" > <img src="{{ x.report_file.url }}" alt="Report Image" style="width:200px;height:300px;"></td>
+                            <td><embed src="{{ x.report_file.url }}" type="application/pdf" width="100%" height="600px" /></td>
+                          </tr>
+
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}

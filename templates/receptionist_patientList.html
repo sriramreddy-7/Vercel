@@ -1,0 +1,43 @@
+{% extends 'receptionist_base.html' %}
+{% load static %}
+{% block body %}
+<div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CCCHC In-Patient List |Total Patient Count- {{patient_count}} </h4>
+                    <!--<p class="card-description"> Add class <code>.table-{color}</code>-->
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-info">
+                            <th style="text-color:black;">Patient ID</th>
+                            <th style="text-color:black;">Patient Name</th>
+                            <th style="text-color:black;">Patient Gender</th>
+                            <th style="text-color:black;">Patient Age</th>
+                            <th style="text-color:black;">Registration Date</th>
+                            <th style="text-align:center;">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in patient%}
+                          <tr class="table-warning">
+                            <td>{{x.patient_id}}</td>
+                            <td>{{x.patient_name}}</td>
+                            <td>{{x.patient_gender}}</td>
+                            <td>{{x.patient_age}}</td>
+                            <td>{{x.registration_date}}</td>
+                            <td style="text-align:center;"><a href="/receptionist/receptionist_patient_View_Edit/{{x.patient_id}}/" type="button" class="btn btn-primary btn-icon-text btn-sm"> View <i class="mdi mdi-file-check btn-icon-append"></i>
+                          </a> &nbsp;|&nbsp; <a type="button" class="btn btn-warning btn-icon-text btn-sm"> Edit <i class="mdi mdi-file-check btn-icon-append"></i>
+                          </a></td>
+                          </tr>
+                         {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}

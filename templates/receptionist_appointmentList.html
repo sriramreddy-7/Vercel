@@ -1,0 +1,41 @@
+{% extends 'receptionist_base.html' %}
+{% load static %}
+{% block body %}
+<div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">CCCHC Patient Appointment List </h4>
+                    <!--<p class="card-description"> Add class <code>.table-{color}</code>-->
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr class="table-info">
+                            <th>Patient Token Number</th>
+                            <th>Patient ID</th>
+
+                            <!--<th>Patient Name</th>-->
+                            <!--<th>Registration Date</th>-->
+                            <th>Appointment Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in apd %}
+                          <tr class="table-warning">
+                            <td>{{x.patient_token}}</td>
+                            <td>{{x.patient_id}}</td>
+
+                            <!--<td>{{x.patient_name}}</td>-->
+
+                            <td>{{x.appointment_date}}</td>
+                          </tr>
+                         {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
